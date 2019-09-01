@@ -1,0 +1,78 @@
+<div ng-include src='"partials/sidebar.html"'></div>
+<nav id="topbar" class="navbar navbar-fixed-top navbar-collapse">
+	<div class="header-nav nav-no-collapse">
+		<div class="utils">
+			<div class="btn-toolbar top-menu">
+				<div class="btn-group">
+					<a href="" sidebar-toggle class="btn btn-menu"><i class="fa fa-bars fa-lg"></i></a>
+					<a href="#/settings" class="btn btn-menu"><i class="fa fa-cogs fa-lg"></i></a>
+				</div>
+			</div>
+		</div>
+		<h1 class="tagline">{{thisAccount.account_name | uppercase}}: <span class="label {{offerfilter | lowercase}}">{{offerfilter}}</span></h1>
+		<div id="topbar-search" class="input-group">
+			<input type="text" class="form-control" ng-model="searchData">
+			<span class="input-group-btn">
+				<button class="btn turquoise" type="button">Search</button>
+			</span>
+		</div>
+	</div>
+</nav>
+
+<section id="main" ng-class="{'closed':boolChangeClass}" ng-swipe-right="slideRight()">
+	<div class="container" ng-controller="sortTable">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="box bordered">
+							<div class="box-header" data-ng-show="(thisAccount.offer_details).length>0">
+							</div>
+
+							<table class="table table-striped offers-table table-responsive" role="grid" ng-table="tableParams" template-pagination="custom/pager">
+								<tbody>
+									<tr class="reveal-animation" data-ng-repeat="offer in $data">
+										<td class="offer-img">
+											<div class="img-menu">
+												<a href="#/offer-details/account/{{account_id}}/offer/{{offer.offer_id}}"><img class="img-responsive" ng-src="{{offer.image_url}}" /></a>
+											</div>
+										</td>
+										<td class="offer-title">
+											<div><a href="#/offer-details/account/{{account_id}}/offer/{{offer.offer_id}}">{{offer.title | characters:40 :false}}</a></div>
+											<div>{{offer.offerCount}}</div>
+											<div class="bold">{{offer.offerValue}}</div>
+											<div ng-show="offer.showLocationName"><button class="btn turquoise-link" ng-click="handleLocationsClick(thisAccount.account_id, offer.offer_id)">{{offer.locationsLabel}}</button></div>
+											<div class="offer-labels">
+												<div class="pull-left"><span class="label {{offer.status | lowercase}}">{{offer.status}}</span></div>
+												<div ng-if="offer.includeMsg" ng-include="'partials/offer-group-messages.html'"></div>
+											</div>
+										</td>
+										<td class="center" data-title="'Start on'" sortable="'start_ts'">
+											<div>{{offer.start_ts | date:'MM/dd/yy @ h:mm a'}}</div>
+										</td>
+										<td class="center" data-title="'End on'" sortable="'expiry_ts'">
+											<div>{{offer.expiry_ts | date:'MM/dd/yy @ h:mm a'}}</div>
+										</td>
+										<td class="center strong" data-title="'Claimed'" sortable="'stats.claims'">{{offer.stats.claims}}</td>
+										<td class="center strong" data-title="'Activated'" sortable="'stats.loads'">{{offer.stats.loads}}</td>
+										<td class="center strong" data-title="'Uses'" sortable="'stats.redeems'">{{offer.stats.redeems}}</td>
+									</tr>
+									<tr data-ng-show="(filteredOffers).length==0"><td colspan=7><div>There are no offers.</div></td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-include src='"partials/footer.html"'></div>
+</section>
+
+<script type="text/ng-template" id="custom/pager">
+	<div class="ng-table-pager pull-right">
+		<ul class="pagination ng-table-pagination pull-right"> <li ng-class="{'disabled': !page.active}" ng-repeat="page in pages" ng-switch="page.type"> <a ng-switch-when="prev" ng-click="params.page(page.number)" href="">&laquo; Prev</a> <a ng-switch-when="first" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a> <a ng-switch-when="page" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a> <a ng-switch-when="more" ng-click="params.page(page.number)" href="">&#8230;</a> <a ng-switch-when="last" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a> <a ng-switch-when="next" ng-click="params.page(page.number)" href="">Next &raquo;</a></li></ul>
+	</div>
+</script>
+<!-- spinner -->
+<div id="spinner" ng-show="isLoading"></div>

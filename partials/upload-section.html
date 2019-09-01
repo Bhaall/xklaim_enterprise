@@ -1,0 +1,25 @@
+<section id="upload-section">
+	<div class="form-group">
+		<div class="fileupload-buttonbar">
+			<div class="col-sm-10 col-sm-offset-2">
+
+				<span ng-class="{disabled: disabled}" class="btn turquoise fileinput-button">
+					<i class="fa fa-picture-o"></i>
+					<span>Select image...</span>
+					<input type="file" fileupload name="files[]" uploadurl="uploadReturn.uploadurl" done="uploadLayer(e, data, 'done')" fail="uploadLayer(e, data, 'fail')" progress="uploadLayer(e, data, 'progress')" ng-model="offer.channel_image">
+				</span>
+
+				<div class="well" ng-show="uploadReturn.status">
+					{{uploadReturn.message}}
+
+					<!--<div ng-show="!uploadReturn.error">-->
+					<div ng-show="uploadReturn.message=='Upload Successful.'">
+						<p class="label label-default">File name: {{uploadReturn.successData.name}}</p>
+						<!--<p><a href="{{uploadReturn.successData.fullUrl}}" target="_blank">View file</a></p>-->
+						<p><a href="{{uploadReturn.successData.fullUrl}}" target="_blank"><img data-ng-src="{{uploadReturn.successData.thumbUrl}}" alt=""></a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

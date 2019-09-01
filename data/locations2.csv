@@ -1,0 +1,540 @@
+street,city,zip,merchid,busname
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny
+9999 Ninth Street,Tulsa,11111,009,Joe's
+1010 Tenth Street,Orem,33223,010,Joe's
+1515 15th Street,Tuscon,87003-0099,015,UTotem
+8888 Eighth Street,Billings,44009,007,7-11
+7777 Seventh Street,Boise,33889,006,7-11
+6666 Sixth Street,Salt Lake City,44990,005,Franks Place
+5555 Fifth Street,San Rafael,98889,004,Target
+1414 14th Street,Philadelphia,87700,014,Joe's
+1313 13th Street,Fargo,55445,013,Mao's Kitchen
+1212 12th Street,Ames,11311,012,Sears
+199 Madison Street,Oklahoma City,22334,013,JCPenny

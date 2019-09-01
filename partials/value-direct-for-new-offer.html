@@ -1,0 +1,62 @@
+<!-- Value section -->
+<ng-form name="valueForm" class="form-horizontal">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="box bordered">
+				<div class="box-header">
+					Offer details
+				</div>
+				<div class="padded clearfix">
+					<div class="col-sm-12">
+						<div class="form-group">
+							<label for="total" ng-class="{error: valueForm.value.$invalid && offerform.submitted}" class="col-sm-3 control-label">Single offer value</label>
+							<div class="col-md-4 col-sm-5">
+								<div class="input-group" ng-class="{error: offerform.submitted && valueForm.value.$invalid}">
+									<span class="input-group-addon"><i class="fa fa-usd"></i></span>
+									<input type="text" placeholder="Amount" class="form-control" id="value" name="value" ng-model="offer.value" money min="1" max="9999" required />
+									<span class="input-group-addon">per offer</span>
+								</div>
+								<div class="error" ng-show="valueForm.value.$invalid && offerform.submitted">
+									<small class="error" ng-show="offerform.submitted && valueForm.value.$error.required">Value is required.</small>
+								</div>
+								<div class="error" ng-show="valueForm.value.$dirty && valueForm.value.$invalid">
+									<small class="error" ng-show="valueForm.value.$invalid">Value must be in a valid currency (USD) format and cannot be larger than $9999.00.</small>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<div class="checkbox no-padding">
+									<label for="use_balance"><input type="checkbox" class="checkbox-large" ng-model="offer.use_balance" name="use_balance" id="use_balance" /> Use xKlaim balance first</label>
+									<div class="green-text account-balance">{{account.balance || 0 | currency}} available</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="budget" class="col-sm-3 control-label">Total budget</label>
+							<div class="col-md-4 col-sm-7">
+								<!-- <div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-usd"></i></span>
+									<input type="text" placeholder="Total budget" class="form-control" disabled id="budget" name="budget" money min="1" max="9999999" ng-model="offer.directBudget" />
+								</div> -->
+								<p class="form-control-static" >{{offer.directBudget | currency}}</p>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="paymentMethod" ng-class="{error: valueForm.paymentMethod.$invalid && offerform.submitted}" class="col-sm-3 control-label">Payment method</label>
+							<div class="col-md-4 col-sm-7">
+								<div class="input full-width" ng-class="{true: 'error'}[offerform.submitted && valueForm.paymentMethod.$invalid]">
+									<select class="form-control" name="paymentMethod" id="paymentMethod" ng-model="offer.paymentMethod" ng-options="method.payment_id as method.payment_method_name for method in methods" data-style="white" bs-select title="Select a payment method" data-width="100%"></select>
+									<div class="error" ng-show="valueForm.paymentMethod.$invalid && offerform.submitted">
+										<small class="error" ng-show="offerform.submitted && valueForm.paymentMethod.$error.required">Payment method is required.</small>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</ng-form>
+<!-- end Value section -->

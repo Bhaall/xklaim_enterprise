@@ -1,0 +1,18 @@
+<!-- url channel for new offer -->
+<div class="form-group">
+	<label for="title" ng-class="{error: offerform.title.$invalid && offerform.submitted, prevError: offerform.title.$invalid && previewError}" class="col-sm-3 control-label">Offer title</label>
+	<div class="col-sm-8" ng-class="{error: offerform.submitted && offerform.title.$invalid, prevError: offerform.title.$invalid && previewError}">
+		<input type="text" placeholder="Brief description" id="title" class="form-control" name="title" ng-model="offer.title" maxLength="70" char-limit="70" ng-maxlength="70" required focus-me ng-disabled="running || approved || completed" />
+		<span class="note">This offer will create a URL.</span>
+		<span class="note pull-right">{{70 - offer.title.length}} remaining</span>
+	</div>
+	<div class="col-sm-8 col-md-offset-3 error" ng-show="offerform.title.$invalid && offerform.submitted">
+		<small class="error" ng-show="offerform.submitted && offerform.title.$error.required">Offer title is required.</small>
+	</div>
+	<div class="col-sm-8 col-md-offset-3 error" ng-show="offerform.title.$dirty && offerform.title.$invalid">
+		<small class="error" ng-show="offerform.title.$error.maxlength">Offer title cannot be longer than 70 characters</small>
+	</div>
+	<div class="col-sm-8 col-md-offset-3 error" ng-show="offerform.title.$invalid">
+		<small class="error" ng-show="offerform.title.$error.preview" ng-hide="offerform.title.$error.required">Offer title is required to preview the offer.</small>
+	</div>
+</div>

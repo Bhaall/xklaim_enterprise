@@ -1,0 +1,37 @@
+<div class="fileupload-buttonbar">
+	<div class="col-md-6 col-sm-7">
+		<div id="drop"
+			ng-show="(uploadReturn.status==false && uploadReturn.error==false) || uploadReturn.status==true && uploadReturn.error==true"
+			ng-hide="(uploadReturn.status==false && !uploadReturn.error) || (uploadReturn.status==true && uploadReturn.error==false)" ng-animate="{show: 'fade-show', hide: 'fade-hide'}">
+			<p>Drop Here</p>
+			<span ng-class="{disabled: disabled}" class="btn turquoise fileinput-button" ng-disabled="running || completed">
+				<i class="fa fa-picture-o"></i>
+				<span>Browse...</span>
+				<input type="file" fileupload name="files[]" uploadurl="uploadReturn.uploadurl" done="uploadLayer(e, data, 'done')" fail="uploadLayer(e, data, 'fail')" progress="uploadLayer(e, data, 'progress')" ng-model="offer.channel_image" accept="image/*" />
+			</span>
+		</div>
+
+		<div class="dark-gray-text note vpadded"
+			ng-show="(uploadReturn.status==false && uploadReturn.error==false) || uploadReturn.status==true && uploadReturn.error==true"
+			ng-hide="(uploadReturn.status==false && !uploadReturn.error) || (uploadReturn.status==true && uploadReturn.error==false)" ng-animate="{show: 'fade-show', hide: 'fade-hide'}">
+			For optimal display please upload an image that is smaller than 4MB and has a square aspect ratio. (max resolution of 2014px x 2048px)
+		</div>
+
+		<div class="well dropzone"
+			ng-hide="uploadReturn.status==false && uploadReturn.error==false"
+			ng-show="(uploadReturn.status==false && !uploadReturn.error) || (uploadReturn.status==true && uploadReturn.error==false)" ng-animate="{show: 'fade-show', hide: 'fade-hide'}">
+			{{uploadReturn.message}}
+			<div ng-show="uploadReturn.status" class="upload-status">
+				<p class="label label-default">File name: {{uploadReturn.successData.name}}</p>
+				<div ng-hide="uploadReturn.message=='Uploading...'"><a href="" data-no-click ng-click="previewNewImage()" class="withicon"><span class="wrapimg"><span class="first-child"></span><img data-ng-src="{{uploadReturn.successData.fullUrl}}" alt="" width="150" /></span></a></div>
+				<div class="btn-group"><a href='' class="btn upload" data-ng-click="uploadLayer(e, data, 'cancel')" ng-disabled="running || completed">(remove)</a></div>
+			</div>
+			<div ng-hide="uploadReturn.message=='Image removed.' || uploadReturn.message=='Upload Successful.'" class="upload-status">
+				<div ng-hide="uploadReturn.message=='Uploading...'"><p class="dark-gray-text note">Current image:</p></div>
+				<p class="label label-default" ng-show="offer.image_name">File name: {{offer.image_name}}</p>
+				<div ng-hide="uploadReturn.message=='Uploading...'"><a href="" data-no-click ng-click="previewExistingImage()" class="withicon"><span class="wrapimg"><span class="first-child"></span><img data-ng-src="{{offer.image_url}}" alt="" width="150" /></span></a></div>
+				<div class="btn-group" ng-hide="uploadReturn.message=='Uploading...'"><a href='' class="btn upload" data-ng-click="uploadLayer(e, data, 'cancel')" ng-disabled="running || completed">(remove)</a></div>
+			</div>
+		</div>
+	</div>
+</div>

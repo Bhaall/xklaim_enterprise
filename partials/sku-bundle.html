@@ -1,0 +1,88 @@
+<div class="form-group">
+	<label for="buy_quantity" ng-class="{error: valueForm.buy_quantity.$invalid && offerform.submitted, prevError: valueForm.buy_quantity.$invalid && previewError}" class="col-sm-3 control-label">1st Buy</label>
+	<div class="col-md-4 col-sm-5">
+		<div class="input-group" ng-class="{error: offerform.submitted && valueForm.buy_quantity.$invalid, prevError: offerform.submitted && previewError}">
+			<span class="input-group-addon"><strong>&#35;</strong></span>
+			<input type="text" placeholder="Number" ng-pattern="/^\d+$/" class="form-control" id="buy_quantity" name="buy_quantity" ng-model="offer.buy_quantity" required ng-disabled="running || completed" />
+		</div>
+		<div class="error" ng-show="valueForm.buy_quantity.$dirty && valueForm.buy_quantity.$invalid">
+			<small class="error" ng-show="valueForm.buy_quantity.$invalid">Minimum purchase must be in a valid currency format (USD) and cannot be larger than $99999999.00.</small>
+		</div>
+		<div class="error" ng-show="valueForm.buy_quantity.$invalid && offerform.submitted">
+			<small class="error" ng-show="offerform.submitted && valueForm.buy_quantity.$error.required">1st Buy is required and must be a number.</small>
+		</div>
+		<div class="error" ng-show="valueForm.buy_quantity.$error.preview">
+			<small class="error" ng-show="valueForm.buy_quantity.$error.preview" ng-hide="valueForm.buy_quantity.$error.required">1st Buy is required to preview the offer.</small>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<label for="buy_code" ng-class="{error: valueForm.buy_code.$invalid && offerform.submitted, prevError: valueForm.buy_code.$invalid && previewError}" class="col-sm-3 control-label">1st Buy Product or family</label>
+	<div class="col-md-4 col-sm-5">
+		<div class="input-group" ng-class="{error: offerform.submitted && valueForm.buy_code.$invalid, prevError: offerform.submitted && previewError}">
+			<span class="input-group-addon"><i class="fa fa-barcode"></i></span>
+			<input type="text" placeholder="UPC or Product Family code" class="form-control" ng-min="3" minLength="3" maxLength="13" ng-minlength="3" char-limit="13" id="buy_code" name="buy_code" ng-model="offer.buy_code" ng-pattern="/^\d+$/" required ng-disabled="running || completed" />
+		</div>
+		<div class="error" ng-show="valueForm.buy_code.$invalid && offerform.submitted">
+			<small class="error" ng-show="offerform.submitted && valueForm.buy_code.$error.required">1st Buy Product or family is required and must be a number between 3 and 13 characters.</small>
+		</div>
+		<div class="error" ng-show="valueForm.buy_code.$error.preview">
+			<small class="error" ng-show="valueForm.buy_code.$error.preview" ng-hide="valueForm.buy_code.$error.required">1st Buy Product or family is required to preview the offer.</small>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<label for="get_quantity" ng-class="{error: valueForm.get_quantity.$invalid && offerform.submitted, prevError: valueForm.get_quantity.$invalid && previewError}" class="col-sm-3 control-label">2nd Buy</label>
+	<div class="col-md-4 col-sm-5">
+		<div class="input-group" ng-class="{error: offerform.submitted && valueForm.get_quantity.$invalid, prevError: offerform.submitted && previewError}">
+			<span class="input-group-addon"><strong>&#35;</strong></span>
+			<input type="number" placeholder="Number" ng-pattern="/[0-9]+/" class="form-control" id="get_quantity" name="get_quantity" ng-model="offer.get_quantity" required ng-disabled="running || completed" />
+		</div>
+		<div class="error" ng-show="valueForm.get_quantity.$invalid && offerform.submitted">
+			<small class="error" ng-show="offerform.submitted && valueForm.get_quantity.$error.required">2nd Buy is required and must be a number.</small>
+		</div>
+		<div class="error" ng-show="valueForm.get_quantity.$error.preview">
+			<small class="error" ng-show="valueForm.get_quantity.$error.preview" ng-hide="valueForm.get_quantity.$error.required">2nd Buy is required to preview the offer and must be a number between 3 and 13 characters.</small>
+		</div>
+		<div class="error" ng-show="valueForm.get_quantity.$dirty && valueForm.get_quantity.$invalid">
+			<small class="error" ng-show="valueForm.get_quantity.$invalid">2nd Buy must be a number.</small>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<label for="get_code" ng-class="{error: valueForm.get_code.$invalid && offerform.submitted, prevError: valueForm.get_code.$invalid && previewError}" class="col-sm-3 control-label">2nd Buy Product or family</label>
+	<div class="col-md-4 col-sm-5">
+		<div class="input-group" ng-class="{error: offerform.submitted && valueForm.get_code.$invalid, prevError: offerform.submitted && previewError}">
+			<span class="input-group-addon"><i class="fa fa-barcode"></i></span>
+			<input type="text" placeholder="UPC or Product Family code" class="form-control" minLength="3" maxLength="13" ng-minlength="3" char-limit="13" id="get_code" name="get_code" ng-model="offer.get_code" required ng-pattern="/[0-9]+/" ng-disabled="running || completed" />
+		</div>
+		<div class="error" ng-show="valueForm.get_code.$invalid && offerform.submitted">
+			<small class="error" ng-show="offerform.submitted && valueForm.get_code.$error.required">2nd Buy Product or family is required and must be a number between 3 and 13 characters.</small>
+		</div>
+		<div class="error" ng-show="valueForm.get_code.$error.preview">
+			<small class="error" ng-show="valueForm.get_code.$error.preview" ng-hide="valueForm.get_code.$error.required">2nd Buy Product or family is required to preview the offer.</small>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<label for="get_amount" ng-class="{error: valueForm.get_amount.$invalid && offerform.submitted, prevError: valueForm.get_amount.$invalid && previewError}" class="col-sm-3 control-label">Discount</label>
+	<div class="col-md-4 col-sm-5">
+		<div class="input-group" ng-class="{error: offerform.submitted && valueForm.get_amount.$invalid, prevError: offerform.submitted && previewError}">
+			<span class="input-group-addon"><i class="fa fa-usd"></i></span>
+			<input type="text" placeholder="Discount" class="form-control" id="get_amount" name="get_amount" ng-model="offer.get_amount" money min=".1" max="99999999" required ng-disabled="running || completed" />
+		</div>
+		<div class="error" ng-show="valueForm.get_amount.$invalid && offerform.submitted">
+			<small class="error" ng-show="offerform.submitted && valueForm.get_amount.$error.required">Discount is required.</small>
+		</div>
+		<div class="error" ng-show="valueForm.get_amount.$dirty && valueForm.get_amount.$invalid">
+			<small class="error" ng-show="valueForm.get_amount.$invalid">Discount must be in a valid currency format (USD) and cannot be larger than $99999999.00.</small>
+		</div>
+		<div class="error" ng-show="valueForm.get_amount.$invalid">
+			<small class="error" ng-show="valueForm.get_amount.$error.preview" ng-hide="valueForm.get_amount.$error.required">Discount is required to preview the offer.</small>
+		</div>
+	</div>
+</div>

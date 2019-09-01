@@ -1,0 +1,19 @@
+<label for="approvers" ng-class="{error: settingsForm.approvers.$invalid && offerform.submitted}" class="col-sm-3 control-label">Add approver</label>
+<div class="col-md-6 col-sm-7">
+	<div class="input full-width" ng-class="{true: 'error'}[offerform.submitted && settingsForm.approvers.$invalid]">
+		<select class="form-control" name="approvers" id="approvers"
+			ng-model="offer.approvers_info"
+			ng-options="approver.id as approver.name for approver in approversList"
+			ng-required="approversRequired == 'true'"
+			ng-disabled="completed"
+			data-style="white"
+			bs-select
+			title="Select an approver"
+			data-width="100%"
+		>
+		</select>
+		<div class="error" ng-show="settingsForm.approvers.$invalid && offerform.submitted">
+			<small class="error" ng-show="offerform.submitted && settingsForm.approvers.$error.required">Approver is required.</small>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,116 @@
+<div ng-include src='"partials/sidebar.html"'></div>
+
+<nav id="topbar" class="navbar navbar-fixed-top navbar-collapse">
+	<div class="header-nav nav-no-collapse">
+		<div class="utils">
+			<div class="btn-toolbar top-menu">
+				<div class="btn-group">
+					<a href="" sidebar-toggle class="btn btn-menu"><i class="fa fa-bars fa-lg"></i></a>
+					<a href="#/settings" class="btn btn-menu"><i class="fa fa-cogs fa-lg"></i></a>
+				</div>
+			</div>
+		</div>
+		<h1 class="tagline">{{thisAccount.name}} ADD CHANNEL</h1>
+	</div>
+</nav>
+
+<section id="main" ng-class="{'closed':boolChangeClass}" ng-swipe-right="slideRight()">
+	<form id="newAccountForm" name="newAccountForm" class="form-horizontal" ng-submit="submit()" role="form" novalidate >
+		<div class="container">
+			<!-- channel section -->
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="box bordered">
+						<div class="box-header">
+							Social Networks
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="padded">
+									<div class="form-group">
+										<label class="col-sm-3 control-label" for="channelName">Name of channel in Xklaim</label>
+										<div class="col-sm-6">
+											<div class="input full-width">
+												<input type="text" name="channelName" id="channelName" placeholder="Account name" class="form-control" ng-model="account.channel_name" required ng-minlength="3" focus-me /><span class="note">Enter a name of more than two characters</span>
+												<div class="error" ng-show="newAccountForm.channelName.$dirty && newAccountForm.channelName.$invalid">
+													<small class="error" ng-show="newAccountForm.channelName.$error.required">Name is required.</small>
+													<small class="error" ng-show="newAccountForm.channelName.$error.minlength">Name must be at least 3 characters.</small>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label" for="network">Social Network</label>
+										<div class="col-sm-6">
+											<div class="input full-width">
+												<select id="network" name="network" class="form-control" ng-model="account.network" required bs-select data-style="white" data-width="100%" title="Select a network">
+													<option value="Twitter" data-icon="fa fa-twitter"> Twitter</option>
+													<option value="Facebook" data-icon="fa fa-facebook"> Facebook</option>
+												</select>
+												<span class="note">Set up the social network account to post offers</span>
+												<div class="error" ng-show="newAccountForm.network.$dirty && newAccountForm.network.$invalid">
+													<small class="error" ng-show="newAccountForm.network.$error.required">Social Network account is required.</small>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-sm-3"></div>
+										<div class="col-sm-6">
+											<a class="btn turquoise btn-block" href="" ng-click="selectChannel()" ng-disabled="newAccountForm.$invalid">Add Channel</a>
+										</div>
+									</div>
+
+									<div ng-include src='"partials/add-channel-table.html"'></div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- end channel section -->
+
+			<!-- included if history data exists -->
+			<div ng-include="historyPartialPath"></div>
+
+		</div>
+	</form>
+
+	<div ng-include src='"partials/footer.html"'></div>
+
+</section>
+
+<!-- continue modal -->
+<div class="modal fade" id="continueModal" role="dialog" aria-hidden="true" data-backdrop="false">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 id="continueModalLabel">Thank you, and welcome!</h3>
+			</div>
+			<div class="modal-body">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-3">
+							<img src="img/logo.png" />
+						</div>
+						<div class="col-sm-9">
+							<h4>Now your all set and ready to create offers on the ok'd platform. What would you like to do next?</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a href="" class="btn white" data-dismiss="modal">Check out the tutorial</a>
+				<a href="" ng-click="closeContinueModal()" data-dismiss="modal" class="btn turquoise">Create a new offer</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end continue modal -->
+
+<!-- spinner -->
+<div id="spinner" ng-show="isLoading"></div>

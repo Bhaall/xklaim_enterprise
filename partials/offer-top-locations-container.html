@@ -1,0 +1,30 @@
+<!-- top locations section -->
+<div class="row partial">
+	<div class="col-sm-12">
+		<div class="box bordered">
+			<div class="box-header">
+				Top Locations
+				<div class="pull-right">
+					<div class="btn-group">
+						<a role="button" class="dropdown-toggle btn white" data-toggle="dropdown">
+							<i class="fa fa-download fa-lg"></i>
+						</a>
+						<ul class="dropdown-menu pull-right" role="menu">
+							<li><a id="exportCSV" ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="toplocations-{{thisOffer.csvTitle}}.csv" export-csv="csv"><i class="fa fa-download"></i> Export to CSV</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="pull-right locations-toggle">
+					<div class="btn-group btn-radio-group">
+						<div class="btn-group white">
+							<button type="button" class="btn btn-radio white" ng-model="radioModel" btn-radio="'table'" ng-change='selectedPartial(radioModel)'><i class="fa fa-table fa-lg"></i></button>
+							<button type="button" class="btn btn-radio white" ng-model="radioModel" btn-radio="'map'" ng-change='selectedPartial(radioModel)'><i class="fa fa-map-marker fa-lg"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix reveal-animation" ng-include="locationsPartialPath"></div>
+		</div>
+	</div>
+</div>
+<!-- end top locations section -->

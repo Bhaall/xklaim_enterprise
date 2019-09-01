@@ -1,0 +1,71 @@
+<div ng-include src='"partials/sidebar.html"'></div>
+
+	<nav id="topbar" class="navbar navbar-fixed-top">
+		<div class="header-nav nav-no-collapse">
+			<div class="utils">
+				<div class="btn-toolbar top-menu">
+					<div class="btn-group">
+						<a href="" sidebar-toggle class="btn btn-menu"><i class="fa fa-bars fa-lg"></i></a>
+						<a href="#/settings" class="btn btn-menu"><i class="fa fa-cogs fa-lg"></i></a>
+					</div>
+				</div>
+			</div>
+			<h1 class="tagline">{{thisAccount.account_name | uppercase}}: PAYMENTS AND TRANSACTIONS</h1>
+		</div>
+	</nav>
+
+	<section id="main" ng-class="{'closed':boolChangeClass}" ng-swipe-right="slideRight()">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="box bordered">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="box-header">
+											Payment Methods <a class="btn white" no-click ng-click="launch('add-method')">add</a>
+										</div>
+										<div class="container" data-ng-repeat="method in methods | orderBy:'payment_method_name':reverse">
+											<div class="row">
+												<div class="col-md-12">
+													<p class="method-name"><strong><a href="" ng-click="viewMethod('{{method.payment_id}}')">{{method.payment_method_name}}</strong></a>
+													<br />
+													{{method.type}} {{method.card_number || method.account_number}} (<a href="" ng-click="deleteMethod('{{method.payment_id}}')">delete</a>)
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="box-header">
+											Available Balance
+										</div>
+										<div class="container">
+											<div class="row">
+												<div class="col-md-12">
+													<h3 ng-class="{ 'red-text': thisAccount.balance < 0 }">{{thisAccount.balance | currency}}</h3>
+													<p><a href="" ng-click="addToBalance()">Add</a> | <a href=""  ng-click="returnToBalance()">Return</a></p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- included if transactions data exists -->
+					<div ng-include="transactionsPartialPath"></div>
+
+					<!-- included if history data exists -->
+					<div ng-include="historyPartialPath"></div>
+
+				</div>
+			</div>
+		</div>
+	<div ng-include src='"partials/footer.html"'></div>
+</section>
+
+<!-- spinner -->
+<div id="spinner" ng-show="isLoading"></div>

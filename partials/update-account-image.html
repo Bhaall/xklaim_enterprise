@@ -1,0 +1,63 @@
+<div ng-include src='"partials/sidebar.html"'></div>
+
+<nav id="topbar" class="navbar navbar-fixed-top navbar-collapse">
+	<div class="header-nav nav-no-collapse">
+		<div class="utils">
+			<div class="btn-toolbar top-menu">
+				<div class="btn-group">
+					<a href="" sidebar-toggle class="btn btn-menu"><i class="fa fa-bars fa-lg"></i></a>
+					<a href="#/settings" class="btn btn-menu"><i class="fa fa-cogs fa-lg"></i></a>
+				</div>
+			</div>
+		</div>
+		<h1 class="tagline">{{thisAccount.account_name | uppercase}}: ACCOUNT IMAGE</h1>
+		<div class="btn-toolbar pull-right">
+			<div class="btn-group">
+				<a href="" class="btn white" ng-click="cancel()"><i class="fa fa-times"></i> Cancel</a>
+			</div>
+			<div class="btn-group">
+				<button class="btn turquoise" ng-click="updateImage()" ng-disabled="uploadReturn.message!='Upload Successful.'"><i class="fa fa-floppy-o"></i> Update Image</button>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<section id="main" ng-class="{'closed':boolChangeClass}" ng-swipe-right="slideRight()">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="box bordered">
+					<div class="box-header">
+						Update account image
+					</div>
+					<div class="padded clearfix">
+						<div class="col-sm-12">
+							<form id="uploadform" name="uploadform" enctype="multipart/form-data" role="form" novalidate>
+								<div id="drop">
+									<p>Drop Here</p>
+									<span class="btn turquoise fileinput-button">
+										<i class="fa fa-picture-o"></i>
+										<span>Browse...</span>
+										<input type="file" fileupload name="files[]" uploadurl="uploadReturn.uploadurl" done="uploadLayer(e, data, 'done')" fail="uploadLayer(e, data, 'fail')" progress="uploadLayer(e, data, 'progress')" ng-model="thisAccount.image_url" required accept="image/*" />
+									</span>
+								</div>
+								<div ng-show="uploadReturn.status" class="center">
+									{{uploadReturn.message}}
+									<div ng-show="uploadReturn.message=='Upload Successful.'">
+										<p class="label label-default">File name: {{uploadReturn.successData.name}}</p>
+										<div><img class="img-circle" data-ng-src="{{uploadReturn.successData.fullUrl}}" alt="" width="90" /></div>
+									</div>
+								</div>
+								<span class="note">Image will be 90px X 90px when displayed.</span>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-include src='"partials/footer.html"'></div>
+</section>
+
+<!-- spinner -->
+<div id="spinner" ng-show="isLoading"></div>

@@ -1,0 +1,15 @@
+<section id="facebook-section">
+	<div class="form-group">
+		<label for="offerFacebook" ng-class="{error: newOfferForm.offerFacebook.$invalid && newOfferForm.offerFacebook.$dirty}" class="col-sm-2 control-label">Facebook Message</label>
+		<div class="col-sm-10">
+			<div class="input full-width">
+				<textarea placeholder="Your message..." rows="4" id="offerFacebook" name="offerFacebook" class="form-control" required ng-model="offer.facebookMessage" ></textarea>
+			</div>
+			<div class="error" ng-show="newOfferForm.offerFacebook.$dirty && newOfferForm.offerFacebook.$invalid">
+				<small class="error" ng-show="newOfferForm.offerFacebook.$error.required">Message is required.</small>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div ng-include src='"partials/upload-section.html"'></div>

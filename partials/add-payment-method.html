@@ -1,0 +1,71 @@
+<div ng-include src='"partials/sidebar.html"'></div>
+
+<nav id="topbar" class="navbar navbar-fixed-top navbar-collapse">
+	<div class="header-nav nav-no-collapse">
+		<!-- utils -->
+		<div class="utils">
+			<div class="logo">
+				<a href="" sidebar-toggle><img src="img/logo_transparent.png" /></a>
+			</div>
+			<div class="btn-toolbar top-menu">
+				<div class="btn-group">
+					<a href="#/settings" class="btn btn-menu"><i class="fa fa-cogs fa-lg"></i></a>
+				</div>
+			</div>
+		</div><!-- end utils -->
+		<h1 class="tagline">{{thisAccount.account_name}}: ADD PAYMENT METHOD</h1>
+		<div class="btn-toolbar pull-right">
+			<div class="btn-group">
+				<a class="btn turquoise" href="" ng-click="submit()" ng-disabled="newAccountForm.$invalid"><i class="fa fa-floppy-o"></i> Continue</a>
+			</div>
+		</div><!-- end .btn-toolbar -->
+	</div><!-- end .header-nav -->
+</nav>
+
+<section id="main" ng-class="{'closed':boolChangeClass}" ng-swipe-right="slideRight()">
+	<form id="newAccountForm" name="newAccountForm" class="form-horizontal" ng-submit="submit()" method="post" novalidate >
+		<div class="container">
+			<!-- payment method section -->
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="box bordered">
+						<div class="box-header">
+							Payment info <span class="dark-gray-text">You will need to set up a bank account or credit card for creating offers</span>
+						</div>
+						<div class="padded">
+							<div class="form-group">
+								<label class="col-sm-3 control-label" for="accountName">Name of Payment Method</label>
+								<div class="col-sm-6">
+									<div class="input full-width">
+										<input type="text" name="accountName" id="accountName" placeholder="Payment Method name" class="form-control" ng-model="account.payment_method_name" required /><span class="note">Enter a payment method name</span>
+										<div class="error" ng-show="newAccountForm.accountName.$dirty && newAccountForm.accountName.$invalid">
+											<small class="error" ng-show="newAccountForm.accountName.$error.required">Name of account is required.</small>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="paymentType" class="col-sm-3 control-label">Payment type</label>
+								<div class="col-sm-6">
+									<select class="form-control" name="paymentType" id="paymentType" ng-model="paymentType" ng-options="p.payment_type_name for p in activePaymentTypes" ng-change="paymentTypePartial()" required bs-select data-style="white" data-width="100%" title="Select a payment type"></select>
+									<div class="error" ng-show="newAccountForm.paymentType.$dirty && newAccountForm.paymentType.$invalid">
+										<small class="error" ng-show="newAccountForm.paymentType.$error.required">Payment type is required.</small>
+									</div>
+								</div>
+							</div>
+							<div ng-include="paymentTypePartialPath"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end payment method section -->
+
+		</div>
+	</form>
+
+	<div ng-include src='"partials/footer.html"'></div>
+
+</section>
+
+<!-- spinner -->
+<div id="spinner" ng-show="isLoading"></div>

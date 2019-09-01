@@ -1,0 +1,32 @@
+<!-- Value section -->
+<ng-form id="valueForm" name="valueForm" class="form-horizontal">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="box bordered">
+				<div class="box-header">
+					Offer details
+				</div>
+				<div class="padded clearfix">
+					<div class="col-sm-12">
+						<div class="form-group btn-radio-group">
+							<div class="btn-group">
+								<button type="button" class="btn btn-radio" ng-model="skuModel" btn-radio="'MINPURCHASED'" ng-change='newSkuSelected(skuModel)' ng-disabled="disable_offertype">$ off</button>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-radio" ng-model="skuModel" btn-radio="'MINPURCHASEP'" ng-change='newSkuSelected(skuModel)' ng-disabled="disable_offertype">% off</button>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-radio" ng-model="skuModel" btn-radio="'BXGX'" ng-change='newSkuSelected(skuModel)' ng-disabled="disable_offertype">BXGX</button>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-radio" ng-model="skuModel" btn-radio="'BUNDLE'" ng-change='newSkuSelected(skuModel)' ng-disabled="disable_offertype">BUNDLE</button>
+							</div>
+						</div>
+						<div ng-include="skuDetailsPartialPath" class="reveal-animation"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</ng-form>
+<!-- end Value section -->

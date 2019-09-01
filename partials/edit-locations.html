@@ -1,0 +1,136 @@
+<div ng-include src='"partials/sidebar.html"'></div>
+<form id="editLocationsForm" name="editLocationsForm" class="form-horizontal" role="form" novalidate>
+	<nav id="topbar" class="navbar navbar-fixed-top navbar-collapse">
+		<div class="header-nav nav-no-collapse">
+			<div class="utils">
+				<div class="btn-toolbar top-menu">
+					<div class="btn-group">
+						<a href="" sidebar-toggle class="btn btn-menu"><i class="fa fa-bars fa-lg"></i></a>
+						<a href="#/settings" class="btn btn-menu"><i class="fa fa-cogs fa-lg"></i></a>
+					</div>
+				</div>
+			</div>
+			<h1 class="tagline">EDIT LOCATION SET: {{location.location_bundle_name | uppercase}}</h1>
+			<div class="btn-toolbar pull-right">
+				<div class="btn-group">
+					<a href="" class="btn white" ng-click="cancel()" tabindex="-1"><i class="fa fa-times"></i> Cancel</a>
+				</div>
+				<div class="btn-group">
+					<button type="submit" class="btn turquoise" ng-click="saveLocations()"><i class="fa fa-floppy-o"></i> Save Location Set</button>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<section id="main" ng-class="{'closed':boolChangeClass}" ng-swipe-right="slideRight()">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="box bordered">
+								<div class="box-header">
+									Edit Locations
+								</div>
+								<table class="table table-striped locations table-responsive" role="grid">
+									<thead>
+										<tr>
+											<td colspan="6">
+												<div class="row">
+													<div class="col-sm-6">
+														<div class="input-group" ng-class="{true: 'error'}[editLocationsForm.submitted && editLocationsForm.location_bundle_name.$invalid]">
+															<span class="input-group-addon"><i class="fa fa-tag"></i></span>
+															<input type="text" class="form-control" id="location_bundle_name" name="location_bundle_name" placeholder="Name of Location Set" ng-model="location.location_bundle_name" required tabindex=-1/>
+														</div>
+													</div>
+												</div>
+											</td>
+										</tr>
+									</thead>
+									<thead>
+										<tr>
+											<th></th>
+											<th>Business name</th>
+											<th>Street address</th>
+											<th>City</th>
+											<th>Zip code</th>
+											<th>Merchant ID</th>
+											<th><a href="" class="btn btn-mini turquoise" ng-click="addLocation()" ng-disabled="editLocationsForm.$invalid" focus-locations-input><i class="fa fa-plus"></i></a></th>
+										</tr>
+									</thead>
+									<tfoot>
+										<td colspan="7">
+											<div class="pull-right">
+												<ul class="pagination">
+													<li ng-class="{disabled: currentPage == 0}">
+														<a href ng-click="prevPage()">&laquo; Prev</a>
+													</li>
+													<li ng-repeat="n in range(pagedItems.length)"
+														ng-class="{active: n == currentPage, error: pagedItems[n].latErr}"
+														ng-click="setPage()">
+														<!-- <a href ng-bind="n + 1">1</a> -->
+														<a href>{{n + 1}}
+															<span ng-show="pagedItems[n].latErr" ng-class="{error: pagedItems[n].latErr}">
+																<i class="glyphicon glyphicon-warning-sign" ></i>
+															</span>
+														</a>
+													</li>
+													<li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+														<a href ng-click="nextPage()">Next &raquo;</a>
+													</li>
+												</ul>
+											</div>
+										</td>
+									</tfoot>
+									<tbody>
+										<tr class="reveal-animation" data-ng-repeat="location in pagedItems[currentPage]" ng-form="locForm" ng-class="rowClass(location)">
+											<td>
+												<div class="loc-error">
+													<button ng-show="rowClass(location)" popover-title="{{locationName}}" popover-placement="right" popover-trigger="mouseenter" popover="This location has a problem with the address provided. Please correct and save the location set." class="btn btn-mini white"><i class="glyphicon glyphicon-warning-sign"></i></button>
+												</div>
+											</td>
+											<td>
+												<div class="input full-width">
+													<input type="text" class="form-control" placeholder="Business name" name="locations_business_name" id="locations_business_name_{{$index + 1}}" ng-model="location.busname" ng-maxlength="100" focus-me />
+												</div>
+											</td>
+											<td>
+												<div class="input full-width" ng-class="{true: 'error'}[editLocationsForm.submitted && locForm.locations_address.$invalid]">
+													<input type="text" class="form-control" placeholder="Address" name="locations_address" id="locations_address_{{$index + 1}}" ng-model="location.street" ng-maxlength="100" required />
+												</div>
+											</td>
+											<td>
+												<div class="input full-width" ng-class="{true: 'error'}[editLocationsForm.submitted && locForm.locations_city.$invalid]">
+													<input type="text" class="form-control" placeholder="City" name="locations_city" id="locations_city_{{$index + 1}}" ng-model="location.city" ng-maxlength="100" required />
+												</div>
+											</td>
+											<td>
+												<div class="input full-width" ng-class="{true: 'error'}[editLocationsForm.submitted && locForm.locations_zipcode.$invalid]">
+													<input type="text" class="form-control" placeholder="Zip Code" name="locations_zipcode" id="locations_zipcode_{{$index + 1}}" ng-model="location.zip" ng-maxlength="10" required ng-pattern="/(^\d{5}$)|(^\d{5}-\d{4}$)/" />
+												</div>
+											</td>
+											<td>
+												<div class="input full-width">
+													<input type="text" class="form-control" placeholder="Merchant ID" name="locations_merch_id" id="locations_merch_id_{{$index + 1}}" ng-model="location.merchid" ng-maxlength="100" />
+												</div>
+											</td>
+											<td>
+												<a href="" class="btn btn-mini delete" ng-click="removeLocation(location)" focus-delete-locations-input><i class="fa fa-times"></i></a>
+											</td>
+										</tr>
+									</tbody>
+
+								</table>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div ng-include src='"partials/footer.html"'></div>
+	</section>
+</form>
+
+<!-- spinner -->
+<div id="spinner" ng-show="isLoading"></div>

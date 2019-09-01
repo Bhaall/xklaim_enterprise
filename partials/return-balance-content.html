@@ -1,0 +1,19 @@
+<div ng-transclude>
+	<div class="form-group clearfix">
+		<span class="title">Available balance:</span>
+		<span>{{thisAccount.balance | currency}} {{method.amount}}</span>
+	</div>
+	<checkbox-group min-required="1">
+		<div class="form-group clearfix" ng-repeat="method in methods">
+			<label for="{{method.payment_id}}" class="col-sm-5 control-label">{{method.payment_method_name}}</label>
+			<div class="col-sm-7">
+				<div class="checkbox">
+					<label for="{{method.payment_id}}">
+						<input type="checkbox" name="selectedMethods[]" value="{{method.payment_id}}" ng-checked="selection.indexOf(method.payment_id) > -1" ng-click="toggleSelection(method.payment_id)" ng-model="selectedMethods" id="{{method.payment_id}}" ng-disabled="method.balance==0" /> {{method.balance | currency}}
+					</label>
+				</div>
+			</div>
+		</div>
+	</checkbox-group>
+	<pre>{{selection|json}}</pre>
+</div>

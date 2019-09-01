@@ -1,0 +1,54 @@
+describe('okdService', function () {
+	var okdService,
+	httpBackend,
+      
+	$injector = angular.injector(['okd', 'ng']),
+	$controller = $injector.get('$controller'),
+	$scope = $injector.get('$rootScope');
+  
+  beforeEach(function (){  
+    // load the module.
+	module('okd');
+
+    
+    // get your service, also get $httpBackend
+    // $httpBackend will be a mock, thanks to angular-mocks.js
+    inject(function($httpBackend, _okdService_) {
+      okdService = _okdService_;      
+      httpBackend = $httpBackend;
+    });
+  });
+  
+  // make sure no expectations were missed in your tests.
+  // (e.g. expectGET or expectPOST)
+  afterEach(function() {
+    httpBackend.verifyNoOutstandingExpectation();
+    httpBackend.verifyNoOutstandingRequest();
+  });
+
+  it('should send the msg and return the response.', function (){
+    // set up some data for the http call to return and test later.
+    var returnData = { excited: true };
+    
+    // expectGET to make sure this is called once.
+    httpBackend.expectGET('somthing.json?msg=wee').respond(returnData);
+    
+    // make the call.
+    var returnedPromise = okdService.sendMessage('wee');
+    
+    // set up a handler for the response, that will put the result
+    // into a variable in this scope for you to test.
+    var result;
+    returnedPromise.then(function(response) {
+      result = response;
+    });
+    
+    // flush the backend to "execute" the request to do the expectedGET assertion.
+    httpBackend.flush();
+    
+    // check the result. 
+    // (after Angular 1.2.5: be sure to use `toEqual` and not `toBe`
+    // as the object will be a copy and not the same instance.)
+    expect(result).toEqual(returnData);
+  });  
+});

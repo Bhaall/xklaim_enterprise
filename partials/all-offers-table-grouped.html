@@ -1,0 +1,41 @@
+<table class="table table-striped offers-table table-responsive" role="grid" ng-table="groupTableParams" template-pagination="custom/pager" ng-show="grouped==true">
+	<tbody ng-repeat="group in $groups">
+		<tr class="ng-table-group">
+			<td colspan="{{$columns.length}}">
+				<a href="" ng-click="group.$hideRows = !group.$hideRows">
+					<span class="glyphicon" ng-class="{ 'glyphicon-chevron-right': group.$hideRows, 'glyphicon-chevron-down': !group.$hideRows }"></span>
+					<strong>{{ group.value }}</strong>
+				</a>
+			</td>
+		</tr>
+		<tr class="reveal-animation" ng-hide="group.$hideRows" ng-repeat="offer in group.data">
+			<td class="offer-img">
+				<div class="img-menu">
+					<a href="#/offer-details/account/{{offer.account_id}}/offer/{{offer.offer_id}}"><img class="img-responsive" ng-src="{{offer.image_url}}" /></a>
+				</div>
+			</td>
+			<td class="offer-title">
+				<div><a href="#/offer-details/account/{{offer.account_id}}/offer/{{offer.offer_id}}">{{offer.title | characters:50 :false}}</a></div>
+				<div>{{offer.offerCount}}</div>
+				<div class="bold">{{offer.offerValue}}</div>
+				<div ng-show="offer.showLocationName">
+					<button class="btn turquoise-link" ng-click="handleLocationsClick(offer.account_id, offer.offer_id)">{{offer.locationsLabel}}</button>
+				</div>
+				<div class="offer-labels reveal-animation">
+					<div class="pull-left"><span class="label {{offer.status | lowercase}}">{{offer.status}}</span></div>
+					<div ng-if="offer.includeMsg" ng-include="'partials/offer-messages.html'"></div>
+				</div>
+			</td>
+			<td class="center" data-title="'Start on'" sortable="'start_ts'">
+				<div>{{offer.start_ts | date:'MM/dd/yy @ h:mm a'}}</div>
+			</td>
+			<td class="center" data-title="'End on'" sortable="'expiry_ts'">
+				<div>{{offer.expiry_ts | date:'MM/dd/yy @ h:mm a'}}</div>
+			</td>
+			<td class="center strong" data-title="'Claimed'" sortable="'stats.claims'">{{offer.stats.claims}}</td>
+			<td class="center strong" data-title="'Activated'" sortable="'stats.loads'">{{offer.stats.loads}}</td>
+			<td class="center strong" data-title="'Uses'" sortable="'stats.redeems'">{{offer.stats.redeems}}</td>
+		</tr>
+		<tr data-ng-show="(account.offer_details).length==0"><td colspan=7><div>There are no offers.</div></td></tr>
+	</tbody>
+</table>

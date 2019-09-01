@@ -1,0 +1,27 @@
+<div class="pull-right hpadded-left">
+	<div class="btn-group">
+		<a class="dropdown-toggle" data-toggle="dropdown">
+			<span class="label msg"><i class="fa fa-envelope fa-lg"></i> {{offer.messages.length}}</span>
+		</a>
+		<ul class="dropdown-menu messages">
+			<li>
+				<span class="dropdown-menu-title">You have {{offer.messages.length}} {{offer.messages.length > 1 && 'messages' || 'message'}}</span>
+			</li>
+			<li data-ng-repeat="message in offer.messages | limitTo:6 | orderBy:'msg_date':reverse">
+				<a href="#/offer-details/account/{{offer.account_id}}/offer/{{offer.offer_id}}?scrollTo=chatForm">
+					<span class="header">
+						<span class="from">{{message.msg_firstname}} {{message.msg_lastname}}</span>
+						<span class="time">{{message.formatted_date | timeDistance}}</span>
+					</span>
+					<span class="message">
+						{{message.msg_text}}
+						<img data-ng-src="{{message.image_url}}" ng-show="message.image_url" alt="" height="30" />
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="#/offer-details/account/{{offer.account_id}}/offer/{{offer.offer_id}}?focusInput=true&scrollTo=chatForm" class="dropdown-menu-sub-footer">Reply</a>
+			</li>
+		</ul>
+	</div>
+</div>

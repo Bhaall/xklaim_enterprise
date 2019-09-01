@@ -1,0 +1,41 @@
+<div class="form-group">
+	<label for="buy_amount" ng-class="{error: valueForm.buy_amount.$invalid && offerform.submitted}" class="col-sm-3 control-label">Minimum purchase</label>
+	<div class="col-md-4 col-sm-5">
+		<div class="input-group">
+			<span class="input-group-addon"><i class="fa fa-usd"></i></span>
+			<input type="text" placeholder="Amount" class="form-control" id="buy_amount" name="buy_amount" ng-model="offer.buy_amount" money min=".1" max="99999999" ng-disabled="running || completed" />
+		</div>
+		<div class="error" ng-show="valueForm.buy_amount.$dirty && valueForm.buy_amount.$invalid">
+			<small class="error" ng-show="valueForm.buy_amount.$invalid">Minimum purchase must be in a valid currency format (USD) and cannot be larger than $99999999.00.</small>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<label for="buy_code" ng-class="{error: valueForm.buy_code.$invalid && offerform.submitted}" class="col-sm-3 control-label">Product or family</label>
+	<div class="col-md-4 col-sm-5">
+		<div class="input-group">
+			<span class="input-group-addon"><i class="fa fa-barcode"></i></span>
+			<input type="text" placeholder="UPC or Product Family code" class="form-control" ng-min="3" minLength="3" maxLength="13" ng-minlength="3" char-limit="13" id="buy_code" name="buy_code" ng-model="offer.buy_code" ng-pattern="/[0-9]+/" ng-disabled="running || completed" />
+		</div>
+		<div class="error" ng-show="valueForm.buy_code.$invalid && offerform.submitted">
+			<small class="error" ng-show="offerform.submitted && valueForm.buy_code.$invalid">Product or family must be a number between 3 and 13 characters.</small>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<label for="get_percentage" ng-class="{error: valueForm.get_percentage.$invalid && offerform.submitted, prevError: valueForm.get_percentage.$invalid && previewError}" class="col-sm-3 control-label">Discount</label>
+	<div class="col-md-4 col-sm-5">
+		<div class="input-group" ng-class="{error: offerform.submitted && valueForm.get_percentage.$invalid, prevError: offerform.submitted && previewError}">
+			<span class="input-group-addon"><strong>&#037;</strong></span>
+			<input type="number" placeholder="Discount" class="form-control" id="get_percentage" name="get_percentage" ng-model="offer.get_percentage" required ng-disabled="running || completed" />
+		</div>
+		<div class="error" ng-show="valueForm.get_percentage.$invalid && offerform.submitted">
+			<small class="error" ng-show="offerform.submitted && valueForm.get_percentage.$error.required">Discount is required and must be a number.</small>
+		</div>
+		<div class="error" ng-show="valueForm.get_percentage.$invalid">
+			<small class="error" ng-show="valueForm.get_percentage.$error.preview" ng-hide="valueForm.get_percentage.$error.required">Discount is required to preview the offer.</small>
+		</div>
+	</div>
+</div>

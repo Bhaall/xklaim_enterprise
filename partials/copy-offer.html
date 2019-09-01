@@ -1,0 +1,428 @@
+<div ng-include src='"partials/sidebar.html"'></div>
+<form id="offerform" class="form-horizontal" name="offerform" enctype="multipart/form-data" role="form" novalidate>
+	<nav id="topbar" class="navbar navbar-fixed-top navbar-collapse">
+		<div class="header-nav nav-no-collapse">
+			<div class="utils">
+				<div class="btn-toolbar top-menu">
+					<div class="btn-group">
+						<a href="" sidebar-toggle class="btn btn-menu"><i class="fa fa-bars fa-lg"></i></a>
+						<a href="#/settings" class="btn btn-menu"><i class="fa fa-cogs fa-lg"></i></a>
+					</div>
+				</div>
+			</div>
+			<h1 class="tagline">COPY OFFER<span ng-if="offer.title">: </span>{{offer.title | uppercase | characters:25 :false}}</h1>
+			<progress id="progressbar" value="0" max="100" progress-bar></progress>
+			<div class="btn-toolbar pull-right">
+				<div class="btn-group">
+					<button type="button" data-toggle="dropdown" class="btn white dropdown-toggle" ng-disabled="not_editable == 'true'"><i class="fa fa-asterisk"></i> Options <span class="caret"></span></button>
+					<ul class="dropdown-menu pull-right" role="menu">
+						<li><a href="" ng-click="submitOffer('Draft')"><i class="fa fa-floppy-o"></i> Save as draft</a></li>
+						<li><a href="" ng-click="previewOffer()" ng-show="showPreview"><i class="fa fa-search"></i> Preview offer</a></li>
+						<li class="divider"></li>
+						<li><a href="" ng-click="cancel()"><i class="fa fa-times"></i> Cancel</a></li>
+					</ul>
+				</div>
+				<div class="btn-group" ng-show="approverRequired">
+					<button type="submit" class="btn turquoise" ng-click="submitOffer('send_for_approval')"><i class="fa fa-check"></i> Send for Approval</button>
+				</div>
+				<div class="btn-group" ng-show="approverRequired==false">
+					<button type="submit" class="btn turquoise" ng-click="submitOffer('Start')"><i class="fa fa-check"></i> Approve</button>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<section id="main" ng-class="{'closed':boolChangeClass}" ng-swipe-right="slideRight()">
+		<div class="container">
+			<!-- general section -->
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="box bordered">
+						<div class="box-header">
+							Type of offer <span class="dark-gray-text">Select the type of offer that you would like to create.</span>
+						</div>
+						<div class="padded clearfix">
+							<div class="col-sm-12" ng-show="account.showOfferType">
+								<label class="col-sm-3 control-label">Type</label>
+								<div class="col-sm-9">
+									<div class="form-group btn-radio-group">
+										<div class="btn-group">
+											<button type="button" class="btn btn-radio" ng-model="typeModel" btn-radio="'standard'" ng-change='newTypeSelected(typeModel)'>Standard</button>
+										</div>
+										<div class="btn-group">
+											<button type="button" class="btn btn-radio" ng-model="typeModel" btn-radio="'sku'" ng-change='newTypeSelected(typeModel)'>SKU Tracking</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<div ng-include="distributionSelectorPartialPath" class="reveal-animation"></div>
+							</div>
+							<div class="col-sm-12">
+								<div ng-include="paymentTypePartialPath" class="reveal-animation"></div>
+							</div>
+							<div class="col-sm-12 form-horizontal">
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="enable_passbook">Enable Passbook</label>
+									<div class="col-sm-9">
+										<div class="checkbox">
+											<label for="enable_passbook">
+												<input type="checkbox" id="enable_passbook" name="enable_passbook" ng-model="offer.enable_passbook" /> Allow iOS users to add offers to Passbook.
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end general section -->
+
+			<div ng-include="valuePartialPath" class="reveal-animation"></div>
+
+			<!-- Timings section -->
+			<ng-form name="timingsForm" class="form-horizontal">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="box bordered">
+							<div class="box-header">
+								Duration <span class="dark-gray-text">Provide the start and end dates for the offer</span>
+							</div>
+							<div class="padded clearfix">
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label for="offerdates" ng-class="{error: offerform.offerdates.$invalid && offerform.submitted}" class="col-sm-3 control-label">Offer dates:</label>
+										<div class="col-md-6">
+											<div class="input-group" ng-class="{true: 'error'}[offerform.submitted && offerform.offerdates.$invalid]">
+												<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+												<input type="daterange" timePicker="true" format="MM/DD/YYYY h:mm A" class="form-control" placeholder="" id="offerdates" name="offerdates" ng-model="offer.offerdates" required date-range ng-disabled="pre_startdate || not_editable" />
+											</div>
+											<div class="error" ng-show="offerform.offerdates.$invalid && offerform.submitted">
+												<small class="error" ng-show="offerform.submitted && offerform.offerdates.$error.required">Offer dates are required.</small>
+											</div>
+										</div>
+										<div class="col-md-8 col-md-offset-3">
+											<div class="note">
+												<i class="fa fa-exclamation-circle"></i> All times are shown as Pacific Standard Time (GMT -08:00).
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</ng-form>
+			<!-- End Timings section -->
+
+			<!-- Channel section -->
+			<ng-form name="createForm" class="form-horizontal">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="box bordered">
+							<div class="box-header">
+								Content <span class="dark-gray-text">Provide an image and description for your offer.</span>
+							</div>
+							<div class="padded clearfix">
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Image Upload</label>
+										<div class="fileupload-buttonbar">
+											<div class="col-md-6 col-sm-7">
+												<div id="drop"
+													ng-show="(uploadReturn.status==false && uploadReturn.error==false) || uploadReturn.status==true && uploadReturn.error==true"
+													ng-hide="(uploadReturn.status==false && !uploadReturn.error) || (uploadReturn.status==true && uploadReturn.error==false)" ng-animate="{show: 'fade-show', hide: 'fade-hide'}">
+													<p>Drop Here</p>
+													<span ng-class="{disabled: disabled}" class="btn turquoise fileinput-button" ng-disabled="not_editable">
+														<i class="fa fa-picture-o"></i>
+														<span>Browse...</span>
+														<input type="file" fileupload name="files[]" uploadurl="uploadReturn.uploadurl" done="uploadLayer(e, data, 'done')" fail="uploadLayer(e, data, 'fail')" progress="uploadLayer(e, data, 'progress')" ng-model="offer.channel_image" ng-disabled="pre_startdate || not_editable" accept="image/*" />
+													</span>
+												</div>
+
+												<div class="dark-gray-text note vpadded"
+													ng-show="(uploadReturn.status==false && uploadReturn.error==false) || uploadReturn.status==true && uploadReturn.error==true"
+													ng-hide="(uploadReturn.status==false && !uploadReturn.error) || (uploadReturn.status==true && uploadReturn.error==false)" ng-animate="{show: 'fade-show', hide: 'fade-hide'}">
+													For optimal display please upload an image that is smaller than 4MB and has a square aspect ratio. (max resolution of 2014px x 2048px)
+												</div>
+
+												<div class="well dropzone"
+													ng-hide="uploadReturn.status==false && uploadReturn.error==false"
+													ng-show="(uploadReturn.status==false && !uploadReturn.error) || (uploadReturn.status==true && uploadReturn.error==false)" ng-animate="{show: 'fade-show', hide: 'fade-hide'}">
+													{{uploadReturn.message}}
+													<div ng-show="uploadReturn.status">
+														<p class="label label-default">File name: {{uploadReturn.successData.name}}</p>
+														<div ng-hide="uploadReturn.message=='Uploading...'"><a href="" data-no-click ng-click="previewNewImage()" class="withicon"><span class="wrapimg"><span class="first-child"></span><img data-ng-src="{{uploadReturn.successData.fullUrl}}" alt="" width="150" /></span></a></div>
+														<div class="btn-group"><a href='' class="btn upload" data-ng-click="uploadLayer(e, data, 'cancel')" ng-disabled="pre_startdate || not_editable">(remove)</a></div>
+													</div>
+													<div ng-hide="uploadReturn.message=='Image removed.' || uploadReturn.message=='Upload Successful.'">
+														<div ng-hide="uploadReturn.message=='Uploading...'"><p class="dark-gray-text note">Current image:</p></div>
+														<p class="label label-default" ng-show="offer.image_name">File name: {{offer.image_name}}</p>
+														<div ng-hide="uploadReturn.message=='Uploading...'"><a href="" data-no-click ng-click="previewExistingImage()" class="withicon"><span class="wrapimg"><span class="first-child"></span><img data-ng-src="{{offer.image_url}}" alt="" width="150" /></span></a></div>
+														<div class="btn-group" ng-hide="uploadReturn.message=='Uploading...'"><a href='' class="btn upload" data-ng-click="uploadLayer(e, data, 'cancel')">(remove)</a></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label for="offerDesc" ng-class="{error: createForm.offerDesc.$invalid && offerform.submitted, prevError: createForm.offerDesc.$invalid && previewError}" class="col-sm-3 control-label">Description</label>
+										<div class="col-md-6 col-sm-7">
+											<div class="input full-width" ng-class="{error: offerform.submitted && createForm.offerDesc.$invalid, prevError: createForm.offerDesc.$invalid && previewError}">
+												<textarea placeholder="Your message..." rows="4" maxLength="200" char-limit="200" id="offerDesc" name="offerDesc" class="form-control" ng-model="offer.desc" required></textarea>
+												<span class="note pull-right"></span>
+											</div>
+											<div class="note">
+												<i class="fa fa-exclamation-circle"></i> You can write max 200 characters.  <span class="note pull-right">{{200 - offer.desc.length}} remaining</span>
+											</div>
+											<div class="error" ng-show="createForm.offerDesc.$invalid && offerform.submitted">
+												<small class="error" ng-show="offerform.submitted && createForm.offerDesc.$error.required">Description is required.</small>
+											</div>
+											<div class="error" ng-show="createForm.offerDesc.$dirty && createForm.offerDesc.$invalid">
+												<small class="error" ng-show="createForm.offerDesc.$error.maxlength">Description cannot be longer than 200 characters</small>
+											</div>
+											<div class="error" ng-show="createForm.offerDesc.$invalid">
+												<small class="error" ng-show="createForm.offerDesc.$error.preview" ng-hide="createForm.offerDesc.$error.required">Description is required to preview the offer.</small>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-12">
+									<div class="form-group">
+										<label for="instructions" class="col-sm-3 control-label">Cashier instructions</label>
+										<div class="col-md-6 col-sm-7">
+											<div class="input full-width">
+												<textarea placeholder="Instructions" rows="4" id="instructions" name="instructions" class="form-control" ng-model="offer.instructions" ng-disabled="pre_startdate || not_editable" ></textarea>
+											</div>
+											<div class="note">
+												<i class="fa fa-exclamation-circle"></i> <strong>Note:</strong> Instructions will be displayed to provide information to the cashier at the point of sale</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</ng-form>
+			<!-- end Channel section -->
+
+			<!-- Locations section -->
+			<ng-form name="locationsForm" class="form-horizontal">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="box bordered">
+							<div class="box-header">
+								Locations <span class="dark-gray-text">Enter the locations where the offer can be used</span>
+							</div>
+							<div id="message"></div>
+							<table class="table table-striped locations table-responsive" role="grid" add-locations>
+								<thead>
+									<tr>
+										<td colspan="6">
+											<div class="row">
+												<div class="col-sm-12">
+													<div class="vpadded" ng-show="showLocations">
+														<select ng-model="offer.selectedLocations" ng-options="location.location_bundle_id as location.location_bundle_name for (key, location) in locations | orderBy:'location_bundle_name'" name="location-select" data-style="white" data-width="250" bs-select multiple data-selected-text-format="count>2" title="Saved Locations" ng-change="importSavedLocations(offer.selectedLocations)"></select>
+														<div class="btn-group">
+															<a href="" class="btn white" ng-disabled="pre_startdate || not_editable" ng-click="removeLocations()"><i class="fa fa-times"></i> Remove locations</a>
+														</div>
+													</div>
+
+													<div class="btn-group" ng-show="showLocations==false">
+														<a href="" ng-click="launch('upload-csv')" class="btn white" ng-disabled="pre_startdate || not_editable"><i class="fa fa-upload"></i> Upload new locations</a>
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</thead>
+								<thead ng-show="showLocations==false">
+									<tr>
+										<td colspan="6">
+											<div class="row">
+												<div class="col-sm-6">
+													<div class="" ng-class="{true: 'error'}[offerform.submitted && locationsForm.location_bundle_name.$invalid]">
+														<input type="text" class="form-control" id="location_bundle_name" name="location_bundle_name" placeholder="Name of Location Set" ng-model="location.location_bundle_name" ng-required="locationNameRequired()" />
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</thead>
+								<thead>
+									<tr>
+										<th>Business name</th>
+										<th>Street address</th>
+										<th>City</th>
+										<th>Zip code</th>
+										<th>Merchant ID</th>
+										<th><a href="" class="btn btn-mini turquoise" ng-click="addLocation()" ng-disabled="pre_startdate || not_editable || locationsForm.$invalid" focus-locations-input><i class="fa fa-plus"></i></a></th>
+									</tr>
+								</thead>
+								<tfoot>
+									<td colspan="6">
+										<div class="pull-right">
+											<ul class="pagination">
+												<li ng-class="{disabled: currentPage == 0}">
+													<a href ng-click="prevPage()">&laquo; Prev</a>
+												</li>
+												<li ng-repeat="n in range(pagedItems.length)"
+													ng-class="{active: n == currentPage}"
+													ng-click="setPage()">
+													<a href ng-bind="n + 1">1</a>
+												</li>
+												<li ng-class="{disabled: currentPage == pagedItems.length - 1}">
+													<a href ng-click="nextPage()">Next &raquo;</a>
+												</li>
+											</ul>
+										</div>
+									</td>
+								</tfoot>
+								<tbody>
+									<tr data-ng-repeat="location in pagedItems[currentPage]" class="reveal-animation" ng-form="locForm">
+										<td>
+											<div class="input full-width">
+												<input type="text" class="form-control" placeholder="Business name" name="location_business_name" id="location_business_name_{{$index + 1}}" ng-model="location.busname" ng-maxlength="100" ng-disabled="pre_startdate || not_editable" />
+											</div>
+										</td>
+										<td>
+											<div class="input full-width" ng-class="{true: 'error'}[offerform.submitted && locForm.location_address.$invalid]">
+												<input type="text" class="form-control" placeholder="Address" name="location_address" id="location_address_{{$index + 1}}" ng-model="location.street" ng-maxlength="100" ng-required="locationsForm.location_bundle_name.$dirty" ng-disabled="pre_startdate || not_editable" />
+											</div>
+										</td>
+										<td>
+											<div class="input full-width" ng-class="{true: 'error'}[offerform.submitted && locForm.location_city.$invalid]">
+												<input type="text" class="form-control" placeholder="City" name="location_city" id="location_city_{{$index + 1}}" ng-model="location.city" ng-maxlength="100" ng-required="locationsForm.location_bundle_name.$dirty" ng-disabled="pre_startdate || not_editable" />
+											</div>
+										</td>
+										<td>
+											<div class="input full-width" ng-class="{true: 'error'}[offerform.submitted && locForm.location_zipcode.$invalid]">
+												<input type="text" class="form-control" placeholder="Zip Code" name="location_zipcode" id="location_zipcode_{{$index + 1}}" ng-model="location.zip" ng-maxlength="10" ng-required="locationsForm.location_bundle_name.$dirty" ng-pattern="/(^\d{5}$)|(^\d{5}-\d{4}$)/" ng-disabled="pre_startdate || not_editable" />
+											</div>
+										</td>
+										<td>
+											<div class="input full-width">
+												<input type="text" class="form-control" placeholder="Merchant ID" name="locations_merch_id" id="locations_merch_id_{{$index + 1}}" ng-model="location.merchid" ng-maxlength="25" ng-disabled="pre_startdate || not_editable" />
+											</div>
+										</td>
+										<td>
+											<a href="" class="btn btn-mini delete" ng-click="removeLocation(location)" focus-delete-locations-input ng-disabled="pre_startdate || not_editable"><i class="fa fa-times"></i></a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</ng-form>
+			<!-- end Locations section -->
+
+			<!-- iBeacons section -->
+			<ng-form name="beaconsForm" class="form-horizontal">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="box bordered">
+							<div class="box-header">
+								iBeacons <span class="dark-gray-text">iBeacons can send offers to shoppers when they approach your store with an active iBeacon.</span>
+							</div>
+							<table class="table table-striped beacons table-responsive" role="grid" >
+								<thead>
+									<tr>
+										<th>Proximity UUID</th>
+										<th>Major</th>
+										<th>Minor</th>
+										<th><a href="" tabindex="-1" class="btn btn-mini turquoise" ng-click="addBeacon()" ng-disabled="beaconForm.$invalid" focus-beacons-input><i class="fa fa-plus"></i></a></th>
+									</tr>
+								</thead>
+								<tfoot>
+									<td colspan="4">
+										<div class="pull-right">
+											<ul class="pagination">
+												<li ng-class="{disabled: currentBeaconPage == 0}">
+													<a href ng-click="prevBeaconPage()">&laquo; Prev</a>
+												</li>
+												<li ng-repeat="n in range(pagedBeacons.length)"
+													ng-class="{active: n == currentBeaconPage}"
+													ng-click="setBeaconPage()">
+													<a href ng-bind="n + 1">1</a>
+												</li>
+												<li ng-class="{disabled: currentBeaconPage == pagedBeacons.length - 1}">
+													<a href ng-click="nextBeaconPage()">Next &raquo;</a>
+												</li>
+											</ul>
+										</div>
+									</td>
+								</tfoot>
+								<tbody>
+									<tr data-ng-repeat="beacon in pagedBeacons[currentBeaconPage]" class="reveal-animation" ng-form="beaconForm">
+										<td>
+											<div class="input full-width">
+												<input type="text" class="form-control" placeholder="Universally Unique Identifier (128-bit string)" name="proximity" ng-model="beacon.proximity" />
+											</div>
+										</td>
+										<td>
+											<div class="input full-width">
+												<input type="text" class="form-control" placeholder="Major value" name="major" ng-model="beacon.major" />
+											</div>
+										</td>
+										<td>
+											<div class="input full-width">
+												<input type="text" class="form-control" placeholder="Minor value" name="minor" ng-model="beacon.minor" />
+											</div>
+										</td>
+										<td>
+											<a href="" tabindex="-1" class="btn btn-mini delete" ng-click="removeBeacon(beacon)" focus-delete-beacons-input ng-disabled="pre_startdate || not_editable"><i class="fa fa-times"></i></a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</ng-form>
+			<!-- end iBeacons section -->
+
+			<!-- Settings section -->
+			<ng-form name="settingsForm" class="form-horizontal">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="box bordered">
+							<div class="box-header">
+								Settings <span class="dark-gray-text">Enable certain features for your offer</span>
+							</div>
+							<div class="padded clearfix">
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="code_check" ng-class="{true: 'error'}[offerform.submitted && settingsForm.code.$invalid]">Scan to Use</label>
+									<div class="col-md-6">
+										<div class="input-group" ng-class="{true: 'error'}[offerform.submitted && settingsForm.code.$invalid]">
+											<span class="input-group-addon">
+												<input type="checkbox" id="code_check" name="code_check" ng-model="offer.code_check" ng-change="clearCode()" ng-disabled="pre_startdate || not_editable" />
+											</span>
+											<input type="text" placeholder="Enter the UPC/EAN value" id="code" class="form-control" name="code" ng-disabled="pre_startdate || not_editable || !offer.code_check" ng-model="offer.code" ng-required="offer.code_check" />
+										</div>
+										<div class="error" ng-show="settingsForm.code.$invalid && offerform.submitted">
+											<small class="error" ng-show="offerform.submitted && settingsForm.code.$error.required">Please enter the UPC/EAN value.</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group reveal-animation" ng-include="approverPartialPath"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</ng-form>
+			<!-- End Settings section -->
+		</div>
+		<div ng-include src='"partials/footer.html"'></div>
+	</section>
+</form>
+
+<!-- spinner -->
+<div id="spinner" ng-show="isLoading"></div>

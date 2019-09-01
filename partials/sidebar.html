@@ -1,0 +1,21 @@
+<nav id="sidebar" class="collapsible-nav" ng-class="{'slide':boolChangeClass}" ng-swipe-left="slideLeft()" ng-controller="SidebarController" nice-scroll>
+	<ul class="nav-collapse navbar-responsive-collapse" >
+		<li class="account-li">
+			<a href="#/all-offers" ng-class="{active: isActive('/all-offers')}"><span class="text">ALL OFFERS</span></a>
+		</li>
+		<li data-ng-repeat="account in profile.accounts">
+			<a data-toggle="collapse" class="accordion-toggle" ng-class="{collapsed: menuActive != $index + 1}" ng-href="#offer-list{{$index + 1}}" data-no-click >
+				<span class="text">{{account.account_name | characters:20 :false}}</span>
+			</a>
+			<ul class="collapse secondary" ng-class="{in: menuActive === $index + 1}" id="offer-list{{$index + 1}}">
+				<li><a ng-class="{active: isActive('/new-offer/{{account.account_id}}')}" href="#/new-offer/{{account.account_id}}" ng-click="setString($index + 1)"><span class="text"><i class="fa fa-plus-circle"></i> New Offer</span></a></li>
+				<li><a ng-class="{ active: isActive('/offers-group/{{account.account_id}}/draft') }" href="#/offers-group/{{account.account_id}}/draft" ng-click="setString($index + 1)"><span class="text">Draft <span class="badge count">{{account.draft}}</span></span></a></li>
+				<li ng-show="account.approverRequired"><a ng-class="{ active: isActive('/offers-group/{{account.account_id}}/PENDING') }" href="#/offers-group/{{account.account_id}}/PENDING" ng-click="setString($index + 1)"><span class="text">Pending <span class="badge count">{{account.pending}}</span></span></a></li>
+				<li><a ng-class="{ active: isActive('/offers-group/{{account.account_id}}/APPROVED') }" href="#/offers-group/{{account.account_id}}/APPROVED" ng-click="setString($index + 1)"><span class="text">Approved <span class="badge count">{{account.approved}}</span></span></a></li>
+				<li><a ng-class="{ active: isActive('/offers-group/{{account.account_id}}/RUNNING') }" href="#/offers-group/{{account.account_id}}/RUNNING" ng-click="setString($index + 1)"><span class="text">Running <span class="badge count">{{account.running}}</span></span></a></li>
+				<li><a ng-class="{ active: isActive('/offers-group/{{account.account_id}}/COMPLETED') }" href="#/offers-group/{{account.account_id}}/COMPLETED" ng-click="setString($index + 1)"><span class="text">Completed <span class="badge count">{{account.completed}}</span></span></a></li>
+				<li><a ng-class="{ active: isActive('/offers-group/{{account.account_id}}/ARCHIVED') }" href="#/offers-group/{{account.account_id}}/ARCHIVED" ng-click="setString($index + 1)"><span class="text">Archived <span class="badge count">{{account.archived}}</span></span></a></li>
+			</ul>
+		</li>
+	</ul>
+</nav>

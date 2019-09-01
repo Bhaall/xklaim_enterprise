@@ -1,0 +1,200 @@
+<div ng-include src='"partials/sidebar.html"'></div>
+<nav id="topbar" class="navbar navbar-fixed-top navbar-collapse">
+	<div class="header-nav nav-no-collapse">
+		<div class="utils">
+			<div class="btn-toolbar top-menu">
+				<div class="btn-group">
+					<a href="" sidebar-toggle class="btn btn-menu"><i class="fa fa-bars fa-lg"></i></a>
+					<a href="#/settings" class="btn btn-menu"><i class="fa fa-cogs fa-lg"></i></a>
+				</div>
+			</div>
+		</div>
+		<h1 class="tagline">{{thisOffer.title | uppercase | characters:45 :false}} <span class="label {{thisOffer.status | lowercase}}">{{thisOffer.status}}</span></h1>
+		<div class="btn-toolbar pull-right">
+			<div class="btn-group">
+				<button type="button" data-toggle="dropdown" class="btn white dropdown-toggle"><i class="fa fa-asterisk"></i> Options <span class="caret"></span></button>
+				<ul class="dropdown-menu pull-right" role="menu">
+					<li ng-show="isApprover"><a href="" ng-click="rejectOffer()"><i class="fa fa-thumbs-down"></i> Reject offer</a></li>
+					<li class="divider" ng-show="isApprover"></li>
+					<li ng-show="thisOffer.status!='COMPLETED' && thisOffer.status!='ARCHIVED'"><a href="#/edit-offer/{{thisOffer.offer_id}}/account/{{account_id}}"><i class="fa fa-pencil-square-o"></i> Edit</a></li>
+					<li><a href="#/copy-offer/{{thisOffer.offer_id}}/account/{{account_id}}"><i class="fa fa-files-o"></i> Copy</a></li>
+					<li class="divider" ng-show="thisOffer.status!='ARCHIVED'"></li>
+					<li><a href="" ng-show="thisOffer.status!='COMPLETED' && thisOffer.status!='ARCHIVED'" ng-click="cancelOffer()"><i class="fa fa-times"></i> Cancel offer</a></li>
+					<li><a href="" ng-show="thisOffer.status=='COMPLETED'" ng-click="archiveOffer()"><i class="fa fa-lock"></i> Archive</a></li>
+				</ul>
+			</div>
+			<div class="btn-group">
+				<button class="btn turquoise" ng-click="approve()" ng-show="isApprover">
+				  <i class="fa fa-thumbs-up"></i> Approve offer
+				</button>
+			</div>
+		</div>
+	</div>
+</nav>
+<section id="main" ng-class="{'closed':boolChangeClass}" ng-swipe-right="slideRight()">
+	<div class="container">
+
+		<!-- sent for approval alert msg -->
+		<div class="row" ng-show="isApprover==false">
+			<div class="col-md-12">
+				<div class="alert alert-info">
+					<strong>Pending approval</strong> by {{approverName}}
+				</div>
+			</div>
+		</div>
+		<!-- end sent for approval alert -->
+
+		<!-- request for approval alert msg -->
+		<div class="row" ng-show="isApprover">
+			<div class="col-md-12">
+				<div class="alert alert-info">
+					<strong>Pending approval by you </strong>
+				</div>
+			</div>
+		</div>
+		<!-- end request for approval alert -->
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="box bordered">
+							<div class="padded clearfix">
+
+								<div class="media offer-details">
+									<a href="" data-no-click ng-click="previewImage()" class="withicon pull-left"><span class="wrapimg"><span class="first-child"></span><img data-ng-src="{{thisOffer.image_url}}" class="media-object" alt="" width="130" /></span></a>
+									<div class="media-body">
+										<div class="btn-group pull-right">
+											<button ng-show="showViewStatus" data-toggle="dropdown" class="btn dropdown-toggle white">View offer <span class="caret"></span></button>
+											<ul class="dropdown-menu" role="menu">
+												<li><a href="{{channelUrl}}" target="_blank"><i class="fa fa-{{channelName | lowercase}}"></i> View on {{channelName}} </a></li>
+												<li><a href="{{landingUrl}}" target="_blank"><i class="fa fa-link"></i> View Landing page</a></li>
+											</ul>
+										</div>
+
+										<div ng-show="showRecipientsStatus">
+											<p class="offer-name" ng-show="showMultipleRecipients">Direct: <button class="btn turquoise-link" popover-template="list.tpl.html" popover-placement="bottom">Multiple</button></p>
+											<p class="offer-name" ng-show="showOneRecipient">Direct: {{recipientNames}}</p>
+										</div>
+										<div ng-show="showTotalValueStatus">
+											<p class="offer-name">{{thisOffer.offercount}} <span ng-show="isRunning">{{pipe}} <a ng-href="{{landingUrl}}" target="_blank">{{landingUrl}}</a></span></p>
+										</div>
+										<h4 class="media-heading">{{thisOffer.offervalue}}</h4>
+										<h5 ng-show="showLocationName" class="locations"><button class="btn turquoise-link" ng-click="openLocationsMap()" href="">{{locationsLabel}}</button></h5>
+										<div class="dates">
+											<span>Starts on {{thisOffer.start_ts | date:'EEEE, MMMM d, y @ h:mma'}}</span><br />
+											<span>Ends on {{thisOffer.expiry_ts | date:'EEEE, MMMM d, y @ h:mma'}}</span>
+										</div>
+										<div class="show-details" bn-slide-show="isVisible" slide-show-duration="200">
+											<h5 class="desc">Description: <span>{{thisOffer.desc}}</span></h5>
+											<h5 class="desc" ng-show="thisOffer.code_check==true">UPC CODE: <span>{{thisOffer.code | uppercase}}</span></h5>
+											<h5 class="desc" ng-show="thisOffer.instructions">Cashier Instructions: <span>{{thisOffer.instructions}}</span></h5>
+											<div class="beacons-browser" ng-show="thisOffer.ibeacon_info">
+												<div class="tabular-list-menu">
+													<span>iBeacons</span>
+													<div class="menu-tabs tab-container">
+														<div class="menu-tab proximity">Proximity UUID</div>
+														<div class="menu-tab major">Major</div>
+														<div class="menu-tab minor">Minor</div>
+													</div>
+												</div>
+												<ul class="tabular-list beacons">
+													<li data-ng-repeat="beacon in thisOffer.ibeacon_info">
+														<div class="content">
+															<div class="buffer"></div>
+															<div class="proximity-container">{{beacon.proximity}}</div>
+															<div class="major-container">{{beacon.major}}</div>
+															<div class="minor-container">{{beacon.minor}}</div>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-12">
+												<p class="trigger"><a ng-click="toggle()" class="showhide" ng-class="{'active': active == true}"></a></p>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<!-- included chart -->
+				<div ng-include="chartPartialPath" class="reveal-animation"></div>
+
+				<!-- included if top locations data exists -->
+				<div ng-include="topLocationsPartialPath" class="reveal-animation"></div>
+
+				<!-- Messages section -->
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="box bordered">
+							<div class="box-header">
+								Messages
+							</div>
+							<div class="">
+								<form ng-submit="addMsg()" novalidate id="chatForm" name="chatForm">
+									<table class="table messages table-striped table-responsive table-hover" role="grid">
+										<tbody>
+											<tr ng-repeat="message in thisOffer.messages | orderBy:'msg_date':!reverse" ng-class="message.className" msg-icon>
+												<td class="col-sm-10 col-xs-9 strong"><div id="{{message.msg_id}}"><i class="fa {{message.icon}}"></i> {{message.msg_firstname}} {{message.msg_lastname}}: {{message.msg_text}} <div class="vpadded" ng-show="message.image_url"><a class="withicon" href="" ng-click="previewMsgImage('{{message.msg_id}}')"><span class="wrapimg"><span class="first-child"></span><img data-ng-src="{{message.image_url}}" alt="" height="110" /></span></a></div></div></td>
+												<td class="col-sm-2 col-xs-3"><i class="icon-time"></i> {{message.msg_date | timeDistance}}</td>
+											</tr>
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="3">
+													<div class="input-group">
+														<input type="text" name="msgText" class="form-control" placeholder="enter your msg here" ng-model="msgText" focus-if="focusInput" />
+														<span class="input-group-btn">
+															<button class="btn turquoise" type="submit" ng-disabled="canAdd()">Send</button>
+														</span>
+													</div>
+												</td>
+											</tr>
+										</tfoot>
+									</table>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end Messages section -->
+
+				<!-- included if history data exists -->
+				<div ng-include="historyPartialPath" class="reveal-animation"></div>
+			</div>
+		</div>
+	</div>
+	<div ng-include src='"partials/footer.html"'></div>
+
+</section><!-- #main -->
+
+<script type="text/ng-template" id="template/popover/popover-template.html">
+	<div class="popover {{placement}}" ng-class="{ in: isOpen(), fade: animation() }">
+		<div class="arrow"></div>
+		<div class="popover-inner" tt-load-template-in-sibling="{{template}}"></div>
+	</div>
+</script>
+
+<script type="text/ng-template" id="list.tpl.html">
+	<h3 class="popover-title">{{listtitle}}</h3>
+	<div class="popover-content">
+		<ul class='unstyled'><li ng-repeat='item in items'>{{item}}</li></ul>
+	</div>
+</script>
+
+<script type="text/ng-template" id="my.tpl.html">
+	<h3 class="popover-title">{{tpltitle}}</h3>
+	<div class="popover-content">
+		<h1>{{string}}</h1>
+	</div>
+</script>
+
+<!-- spinner -->
+<div id="spinner" ng-show="isLoading"></div>

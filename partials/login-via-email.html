@@ -1,0 +1,145 @@
+	<div class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="container-wide">
+			<div class="navbar-header">
+				<img class="navbar-brand" src="img/logo-login.png" />
+			</div>
+		</div>
+	</div>
+
+	<section id="hero">
+		<article class="intro teal">
+			<div class="container-wide">
+				<div class="row">
+					<div class="col-md-12">
+						<h1 class="center">Get Started Today</h1>
+						<span class="line center"></span>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
+
+	<section id="contact">
+		<article class="intro white">
+			<div class="container-narrow">
+				<div ng-switch on="firsttime">
+					<div class="col-sm-5 col-sm-offset-1 col-lg-5 col-lg-offset-1" ng-switch-when=true>
+						<h2>Welcome to your<br /> Xklaim free trial</h2>
+						<span class="line"></span>
+						<p>Thanks for signing up with the world's first social activation platform. We're here to help you get the most out of using Xklaim. To get started, add your password and then you're ready to create and distribute offers to your entire social following and direct traffic to your retail locations.</p>
+					</div>
+					<div class="col-sm-5 col-sm-offset-1 col-lg-5 col-lg-offset-1" ng-switch-when=false>
+						<h2>Welcome to Xklaim</h2>
+						<span class="line"></span>
+						<p>To get started, add your password and then you're ready to create and distribute offers to your entire social following and direct traffic to your retail locations.</p>
+					</div>
+					<div class="col-sm-5 col-lg-5">
+						<form id="newLoginForm" name="newLoginForm" novalidate ng-submit="login()" accept-charset="UTF-8" role="form">
+							<div id="spinner" ng-show="isLoading"></div>
+							<fieldset>
+								<div class="form-group has-feedback" ng-class="{'has-success': newLoginForm.first_name.$valid, 'has-invalid': newLoginForm.first_name.$invalid && newLoginForm.first_name.$dirty, 'has-error': newLoginForm.first_name.$invalid && newLoginForm.submitted}">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-user"></i></span>
+										<input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" required ng-model="profile.first_name" focus-me disable-field />
+									</div>
+									<div ng-show="newLoginForm.first_name.$valid">
+										<span ng-show="newLoginForm.first_name.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+									</div>
+									<div ng-show="newLoginForm.first_name.$invalid && newLoginForm.first_name.$dirty">
+										<span ng-show="newLoginForm.first_name.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+									</div>
+									<div ng-show="newLoginForm.first_name.$invalid && newLoginForm.submitted">
+										<span ng-show="newLoginForm.first_name.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+									</div>
+									<div class="error" ng-show="newLoginForm.email.$invalid && newLoginForm.submitted">
+										<small class="error" ng-show="newLoginForm.submitted && newLoginForm.first_name.$error.required">First name is required.</small>
+									</div>
+								</div>
+								<div class="form-group has-feedback" ng-class="{'has-success': newLoginForm.last_name.$valid, 'has-invalid': newLoginForm.last_name.$invalid && newLoginForm.last_name.$dirty, 'has-error': newLoginForm.last_name.$invalid && newLoginForm.submitted}">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-user"></i></span>
+										<input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" ng-model="profile.last_name" required disable-field />
+									</div>
+									<div ng-show="newLoginForm.last_name.$valid">
+										<span ng-show="newLoginForm.last_name.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+									</div>
+									<div ng-show="newLoginForm.last_name.$invalid && newLoginForm.last_name.$dirty">
+										<span ng-show="newLoginForm.last_name.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+									</div>
+									<div ng-show="newLoginForm.last_name.$invalid && newLoginForm.submitted">
+										<span ng-show="newLoginForm.last_name.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+									</div>
+									<div class="error" ng-show="newLoginForm.last_name.$invalid && newLoginForm.submitted">
+										<small class="error" ng-show="newLoginForm.submitted && newLoginForm.last_name.$error.required">Last name is required.</small>
+									</div>
+								</div>
+
+								<div class="form-group has-feedback" ng-class="{'has-success': newLoginForm.email_id.$valid, 'has-invalid': newLoginForm.email_id.$invalid && newLoginForm.email_id.$dirty, 'has-error': newLoginForm.email_id.$invalid && newLoginForm.submitted}">
+									<div class="input-group">
+										<span class="input-group-addon">@</span>
+										<input type="email" class="form-control" id="email_id" name="email_id" placeholder="Email" ng-model="profile.email_id" required ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/" disable-field />
+									</div>
+									<div ng-show="newLoginForm.email_id.$valid">
+										<span ng-show="newLoginForm.email_id.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+									</div>
+									<div ng-show="newLoginForm.email_id.$invalid && newLoginForm.email_id.$dirty">
+										<span ng-show="newLoginForm.email_id.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+									</div>
+									<div ng-show="newLoginForm.email_id.$invalid && newLoginForm.submitted">
+										<span ng-show="newLoginForm.email_id.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+									</div>
+									<div class="error" ng-show="newLoginForm.email_id.$invalid && newLoginForm.submitted">
+										<small class="error" ng-show="newLoginForm.submitted && newLoginForm.email_id.$error.required">Email address is required.</small>
+									</div>
+								</div>
+
+								<hr />
+
+								<div class="form-group has-feedback" ng-class="{'has-success': newLoginForm.newPassword.$valid, 'has-invalid': newLoginForm.newPassword.$invalid && newLoginForm.newPassword.$dirty, 'has-error': newLoginForm.newPassword.$invalid && newLoginForm.submitted}">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-key"></i></span>
+										<input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="New password" ng-model="profile.newPassword" ng-minlength="3" ng-maxlength="15" equals="{{profile.verifyPassword}}" required disable-field />
+									</div>
+									<div ng-show="newLoginForm.newPassword.$valid">
+										<span ng-show="newLoginForm.newPassword.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+									</div>
+									<div ng-show="newLoginForm.newPassword.$invalid && newLoginForm.newPassword.$dirty">
+										<span ng-show="newLoginForm.newPassword.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+									</div>
+									<div ng-show="newLoginForm.newPassword.$invalid && newLoginForm.submitted">
+										<span ng-show="newLoginForm.newPassword.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+									</div>
+									<div class="error" ng-show="newLoginForm.newPassword.$dirty && newLoginForm.newPassword.$invalid">
+										<small class="error" ng-show="newLoginForm.newPassword.$error.minlength">Password must be at least 3 characters</small>
+										<small class="error" ng-show="newLoginForm.newPassword.$error.maxlength">Password cannot be longer than 20 characters</small>
+									</div>
+								</div>
+
+								<div class="form-group has-feedback" ng-class="{'has-success': newLoginForm.verifyPassword.$valid, 'has-invalid': newLoginForm.verifyPassword.$invalid && newLoginForm.verifyPassword.$dirty, 'has-error': newLoginForm.verifyPassword.$invalid && newLoginForm.submitted}">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-check"></i></span>
+										<input type="password" class="form-control" id="verifyPassword" name="verifyPassword" placeholder="Verify password" ng-minlength="3" ng-maxlength="15" ng-model="profile.verifyPassword" equals="{{profile.newPassword}}" required disable-field />
+									</div>
+									<div ng-show="newLoginForm.verifyPassword.$valid">
+										<span ng-show="newLoginForm.verifyPassword.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+									</div>
+									<div ng-show="newLoginForm.verifyPassword.$invalid && newLoginForm.verifyPassword.$dirty">
+										<span ng-show="newLoginForm.verifyPassword.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+									</div>
+									<div ng-show="newLoginForm.verifyPassword.$invalid && newLoginForm.submitted">
+										<span ng-show="newLoginForm.verifyPassword.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+									</div>
+									<div class="error" ng-show="newLoginForm.verifyPassword.$dirty && newLoginForm.verifyPassword.$error.equals">
+										<small class="error" ng-show="newLoginForm.verifyPassword.$error.equals">Password fields do not match.</small>
+									</div>
+								</div>
+
+								<button type="submit" ng-disabled="newLoginForm.$invalid" class="btn turquoise btn-block">Create Account</button>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+
+		</article>
+	</section>

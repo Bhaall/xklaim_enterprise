@@ -1,0 +1,20 @@
+<section id="twitter-section">
+	<div class="form-group">
+		<label for="offerTweet" ng-class="{error: newOfferForm.offerTweet.$invalid && newOfferForm.offerTweet.$dirty}" class="col-sm-2 control-label">Compose Tweet</label>
+		<div class="col-sm-10">
+			<div class="input full-width">
+				<textarea placeholder="Your tweet..." rows="4" maxLength="140" char-limit="140" id="offerTweet" name="offerTweet" class="form-control" required ng-model="offer.tweet"></textarea>
+				<span class="note pull-right"></span>
+			</div>
+			<div class="note">
+				<i class="fa fa-exclamation-circle"></i> You can write max 140 characters.  <span class="note pull-right">{{140 - offer.tweet.length}} remaining <i class="fa fa-twitter"></i></span>
+			</div>
+			<div class="error" ng-show="newOfferForm.offerTweet.$dirty && newOfferForm.offerTweet.$invalid">
+				<small class="error" ng-show="newOfferForm.offerTweet.$error.required">Message is required.</small>
+				<small class="error" ng-show="newOfferForm.offerTweet.$error.maxlength">Message cannot be longer than 140 characters</small>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div ng-include src='"partials/upload-section.html"'></div>

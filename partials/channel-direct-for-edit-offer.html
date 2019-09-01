@@ -1,0 +1,12 @@
+<!-- direct channel for edit/copy offer -->
+<div class="form-group">
+	<label for="recipients" ng-class="{error: offerform.recipients.$invalid && offerform.submitted}" class="col-sm-3 control-label">Enter recipients</label>
+	<div class="col-sm-8" ng-class="{error: offerform.submitted && offerform.recipients.$invalid}">
+		<select id="recipients" name="recipients" data-placeholder="Select one or more recipients" multiple class="form-control chosen-select" chosen="recipientsList" ng-model="offer.recipients" ng-options="recipient.name for recipient in recipientsList" required focus-me ng-disabled="running || approved || completed">
+		</select>
+		<span class="note">This offer will be sent directly to the recipients provided.</span>
+	</div>
+	<div class="col-sm-8 col-md-offset-3 error" ng-show="offerform.recipients.$invalid && offerform.submitted">
+		<small class="error" ng-show="offerform.submitted && offerform.recipients.$error.required">This field is required.</small>
+	</div>
+</div>

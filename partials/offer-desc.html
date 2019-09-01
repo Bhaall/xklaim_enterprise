@@ -1,0 +1,20 @@
+<div class="col-sm-12">
+	<div class="form-group">
+		<label for="offerDesc" ng-class="{error: createForm.offerDesc.$invalid && offerform.submitted}" class="col-sm-3 control-label">Description</label>
+		<div class="col-md-6 col-sm-7">
+			<div class="input full-width" ng-class="{true: 'error'}[offerform.submitted && createForm.offerDesc.$invalid]">
+				<textarea placeholder="Your message..." rows="4" maxLength="200" char-limit="200" id="offerDesc" name="offerDesc" class="form-control" ng-model="offer.desc" required></textarea>
+				<span class="note pull-right"></span>
+			</div>
+			<div class="note">
+				<i class="fa fa-exclamation"></i> You can write max 200 characters.  <span class="note pull-right">{{200 - offer.desc.length}} remaining</span>
+			</div>
+			<div class="error" ng-show="createForm.offerDesc.$invalid && offerform.submitted">
+				<small class="error" ng-show="offerform.submitted && createForm.offerDesc.$error.required">Message is required.</small>
+			</div>
+			<div class="error" ng-show="createForm.offerDesc.$dirty && createForm.offerDesc.$invalid">
+				<small class="error" ng-show="createForm.offerDesc.$error.maxlength">Message cannot be longer than 140 characters</small>
+			</div>
+		</div>
+	</div>
+</div>
